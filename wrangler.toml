@@ -1,4 +1,4 @@
-name = "remix-cloudflare-workers"
+name = "ta-remix"
 type = "javascript"
 
 zone_id = ""
