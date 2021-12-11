@@ -16,3 +16,7 @@ watch_dir = "build/index.js"
 
 [build.upload]
 format="service-worker"
+
+kv_namespaces = [
+  { binding = "CACHE_KV", id = "a960c45727a2433b9ad8ce1598817866" }
+]
