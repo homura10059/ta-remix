@@ -12,7 +12,9 @@
     "start": "miniflare --build-command \"npm run dev:worker\" --watch",
     "deploy": "npm run build && wrangler publish",
     "storybook": "TAILWIND_MODE=watch start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "lint": "eslint 'app/**/*.{js,ts,jsx,tsx}'",
+    "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
@@ -37,6 +39,12 @@
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "@types/tailwindcss": "^2.2.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "autoprefixer": "^10.4.0",
     "babel-loader": "^8.2.3",
     "esbuild": "0.13.14",

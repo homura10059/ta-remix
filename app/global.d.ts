@@ -1,1 +1,1 @@
-declare const CACHE_KV: KVNamespace;
+declare const CACHE_KV: KVNamespace
