@@ -10,20 +10,11 @@ import {
   useCatch
 } from 'remix'
 
-import darkStylesUrl from '~/styles/dark.css'
-import globalStylesUrl from '~/styles/global.css'
+import styles from '~/styles/generated.css'
 
 // https://remix.run/api/app#links
 export const links: LinksFunction = () => {
-  return [
-    { rel: 'stylesheet', href: globalStylesUrl },
-    {
-      rel: 'stylesheet',
-      href: darkStylesUrl,
-      media: '(prefers-color-scheme: dark)'
-    },
-    { rel: 'stylesheet', href: '/tailwindcss' }
-  ]
+  return [{ rel: 'stylesheet', href: styles }]
 }
 
 // https://remix.run/api/conventions#default-export
@@ -40,7 +31,6 @@ export default function App() {
 
 // https://remix.run/docs/en/v1/api/conventions#errorboundary
 export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error)
   return (
     <Document title="Error!">
       <Layout>
@@ -106,7 +96,7 @@ function Document({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        {title ? <title>{title}</title> : null}
+        <title>{title ? title : ''}</title>
         <Meta />
         <Links />
       </head>

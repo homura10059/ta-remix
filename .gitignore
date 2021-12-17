@@ -7,3 +7,5 @@ node_modules
 
 /.idea
 /.mf
+
+/app/styles/generated.css
