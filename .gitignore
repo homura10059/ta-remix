@@ -9,3 +9,5 @@ node_modules
 /.mf
 
 /app/styles/generated.css
+
+.env
