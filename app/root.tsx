@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import type { LinksFunction } from 'remix'
 import {
   Link,
@@ -103,7 +104,7 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className={cx(['lg:container', 'lg:mx-auto'])}>
         {children}
         <ScrollRestoration />
         <Scripts />

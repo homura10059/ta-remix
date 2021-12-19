@@ -4,6 +4,9 @@ const config = {
   content: ['./app/**/*.{ts,tsx}'],
   darkMode: 'media',
   theme: {
+    container: {
+      center: true
+    },
     extend: {
       colors: {
         primary: {
