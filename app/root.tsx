@@ -123,8 +123,6 @@ const signIn = async () => {
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
-  const user = supabase.auth.user()
-  console.log(user)
   const session = supabase.auth.session()
   console.log(session)
   const callback = useCallback(() => signIn(), [])
