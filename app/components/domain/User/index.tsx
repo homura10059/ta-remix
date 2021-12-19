@@ -1,38 +1,48 @@
-import { BookOpenIcon } from '@heroicons/react/solid'
 import { Session } from '@supabase/gotrue-js/src/lib/types'
 import cx from 'classnames'
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'remix'
 
-import { Spinner } from '../../headless/Spinner'
+import { supabase } from '../../../libs/auth'
+import Avatar from './Avatar'
+import { SignIn } from './SignIn'
+import { SignOut } from './SignOut'
 
 type Props = {
   session: Session | null
-  loading: boolean
 }
-export const User: React.VFC<Props> = ({ session, loading }) => {
-  if (loading) {
-    return <Spinner />
-  }
-  if (session === null) {
-    return <></>
-  }
+export const User: React.VFC<Props> = ({ session }) => {
+  const [opened, setOpened] = useState(false)
   return (
-    <div
-      className={cx(
-        'flex',
-        'justify-between',
-        'content-center',
-        'bg-primary-light',
-        'p-1'
-      )}
+    <Link
+      to={'#'}
+      onClick={() => setOpened(!opened)}
+      className={cx(['relative'])}
     >
-      <BookOpenIcon className={'w-10 h-10'} />
-    </div>
+      <Avatar session={session} />
+      {opened && (
+        <ul
+          className={cx([
+            'absolute',
+            'right-0',
+            'top-full',
+            'z-50',
+            'bg-background',
+            'border-2',
+            'border-surface',
+            'p-2'
+          ])}
+        >
+          <li>{session ? <SignOut /> : <SignIn />}</li>
+        </ul>
+      )}
+    </Link>
   )
 }
 
 const Connect: React.VFC = () => {
-  return <User session={null} loading={true} />
+  const session = supabase.auth.session()
+  return <User session={session} />
 }
 
 export default Connect

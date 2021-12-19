@@ -18,7 +18,7 @@ const config = {
           light: '#4C4C4C',
           dark: '#0B0B0B'
         },
-        background: '#9E1221',
+        background: '#FDFDFD',
         surface: '#0B0B0B',
         error: '#33C4B3',
         on: {

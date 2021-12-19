@@ -1,4 +1,3 @@
-import { useCallback } from 'react'
 import type { LinksFunction } from 'remix'
 import {
   Link,
@@ -13,6 +12,7 @@ import {
 
 import styles from '~/styles/generated.css'
 
+import Header from './components/domain/Header'
 import { supabase } from './libs/auth'
 
 // https://remix.run/api/app#links
@@ -113,25 +113,15 @@ function Document({
   )
 }
 
-const signIn = async () => {
-  const { user, session, error } = await supabase.auth.signIn({
-    provider: 'discord'
-  })
-  console.log(user)
-  console.log(session)
-  console.log(error)
-}
-
 function Layout({ children }: { children: React.ReactNode }) {
   const session = supabase.auth.session()
   console.log(session)
-  const callback = useCallback(() => signIn(), [])
   return (
     <div>
+      <Header />
       <header>
         Header
         <div>
-          <button onClick={callback}>SignIn</button>
           <nav aria-label="Main navigation">
             <ul>
               <li>

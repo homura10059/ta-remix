@@ -1,11 +1,13 @@
 import { BookOpenIcon } from '@heroicons/react/solid'
-import classNames from 'classnames'
+import cx from 'classnames'
 import React from 'react'
 
-export const Header: React.FC = () => {
+import User from '../User'
+
+export const Header: React.VFC = () => {
   return (
-    <div
-      className={classNames(
+    <header
+      className={cx(
         'flex',
         'justify-between',
         'content-center',
@@ -14,11 +16,12 @@ export const Header: React.FC = () => {
       )}
     >
       <BookOpenIcon className={'w-10 h-10'} />
-    </div>
+      <User />
+    </header>
   )
 }
 
-const Connect: React.FC = () => {
+const Connect: React.VFC = () => {
   return <Header />
 }
 
