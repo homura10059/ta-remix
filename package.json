@@ -18,7 +18,8 @@
     "storybook": "TAILWIND_MODE=watch start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "eslint 'app/**/*.{js,ts,jsx,tsx}'",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "supabase:codegen": "source ./.env && openapi-typescript \"$SUPABASE_URL/rest/v1/?apikey=$SERVICE_KEY\" --output app/types/generated/supabase.ts"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
@@ -54,6 +55,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "miniflare": "2.0.0-next.3",
+    "openapi-typescript": "^4.4.0",
     "postcss": "^8.4.4",
     "storybook-tailwind-dark-mode": "^1.0.11",
     "tailwindcss": "^3.0.1",

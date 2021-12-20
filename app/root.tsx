@@ -1,7 +1,6 @@
 import cx from 'classnames'
 import type { LinksFunction } from 'remix'
 import {
-  Link,
   Links,
   LiveReload,
   Meta,
@@ -120,24 +119,6 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <Header />
-      <header>
-        Header
-        <div>
-          <nav aria-label="Main navigation">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <a href="https://remix.run/docs">Remix Docs</a>
-              </li>
-              <li>
-                <a href="https://github.com/remix-run/remix">GitHub</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
       <main>{children}</main>
       <footer>
         <p>Footer</p>
