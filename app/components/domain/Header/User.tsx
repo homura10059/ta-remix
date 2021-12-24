@@ -33,9 +33,11 @@ export const User: React.VFC<Props> = ({ session }) => {
             'p-2'
           ])}
         >
-          <li>
-            <Link to={'/user'}>Profile</Link>
-          </li>
+          {session && (
+            <li>
+              <Link to={'/user'}>Profile</Link>
+            </li>
+          )}
           <li>{session ? <SignOut /> : <SignIn />}</li>
         </ul>
       )}
