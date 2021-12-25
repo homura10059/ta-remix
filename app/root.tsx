@@ -114,8 +114,6 @@ function Document({
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
-  const session = supabase.auth.session()
-  console.log(session)
   return (
     <div>
       <Header />
