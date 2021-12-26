@@ -1,3 +1,4 @@
+import { useClickOutside } from '@mantine/hooks'
 import { Session } from '@supabase/gotrue-js/src/lib/types'
 import cx from 'classnames'
 import React, { useState } from 'react'
@@ -12,6 +13,8 @@ type Props = {
 }
 export const User: React.VFC<Props> = ({ session }) => {
   const [opened, setOpened] = useState(false)
+  const ref = useClickOutside(() => setOpened(false))
+
   return (
     <Link
       to={'#'}
@@ -31,6 +34,7 @@ export const User: React.VFC<Props> = ({ session }) => {
             'border-surface',
             'p-2'
           ])}
+          ref={ref}
         >
           {session && (
             <li>
