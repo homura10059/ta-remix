@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'remix'
 
 import { Item } from '../../../domain/models'
 import { getAllItemsBy } from '../../../domain/service/items'
@@ -9,14 +10,14 @@ type Props = {
   items: Item[]
 }
 
-const DashBordItem: React.VFC<Item> = ({ title, scrapedAt, url }) => {
+const DashBordItem: React.VFC<Item> = ({ title, scrapedAt, id }) => {
   return (
-    <a href={url}>
+    <Link to={`/items/${id}`}>
       <dd>
         <dt>{title}</dt>
         <dd>{scrapedAt}</dd>
       </dd>
-    </a>
+    </Link>
   )
 }
 

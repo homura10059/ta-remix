@@ -1,9 +1,6 @@
-export type Item = {
-  id: string
-  url: string
-  scrapedAt: number
-  title: string
-}
+import { definitions } from '../../types/generated/supabase'
+
+export type Item = definitions['items']
 
 export type User = {
   id: string
@@ -22,4 +19,8 @@ export type User = {
       }[]
     }[]
   }[]
+}
+
+export type ItemDetail = definitions['items'] & {
+  itemHistories: definitions['itemHistories'][]
 }
