@@ -3,7 +3,6 @@ import cx from 'classnames'
 import React, { useState } from 'react'
 import { Link } from 'remix'
 
-import { supabase } from '../../../libs/auth'
 import Avatar from './Avatar'
 import { SignIn } from './SignIn'
 import { SignOut } from './SignOut'
@@ -44,10 +43,3 @@ export const User: React.VFC<Props> = ({ session }) => {
     </Link>
   )
 }
-
-const Connect: React.VFC = () => {
-  const session = supabase.auth.session()
-  return <User session={session} />
-}
-
-export default Connect

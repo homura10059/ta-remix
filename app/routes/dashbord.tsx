@@ -1,12 +1,14 @@
 import type { MetaFunction } from 'remix'
 
+import DashBord from '../components/domain/DashBord'
+
 export const meta: MetaFunction = () => {
   return {
-    title: 'Index',
+    title: 'DashBord',
     description: 'Welcome!!'
   }
 }
 
 export default function Index() {
-  return <main>index</main>
+  return <DashBord />
 }
