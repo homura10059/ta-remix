@@ -5,6 +5,7 @@ import { Link } from 'remix'
 import { Item } from '../../../domain/models'
 import { getAllItemsBy } from '../../../domain/service/items'
 import { supabase } from '../../../libs/auth'
+import { getJstString } from '../../../libs/dates'
 
 type Props = {
   items: Item[]
@@ -15,7 +16,7 @@ const DashBordItem: React.VFC<Item> = ({ title, scrapedAt, id }) => {
     <Link to={`/items/${id}`}>
       <dd>
         <dt>{title}</dt>
-        <dd>{scrapedAt}</dd>
+        <dd>{scrapedAt ? getJstString(scrapedAt) : '----'}</dd>
       </dd>
     </Link>
   )
