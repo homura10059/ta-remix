@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import format from 'date-fns/format'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'remix'
 
@@ -15,7 +16,9 @@ const DashBordItem: React.VFC<Item> = ({ title, scrapedAt, id }) => {
     <Link to={`/items/${id}`}>
       <dd>
         <dt>{title}</dt>
-        <dd>{scrapedAt}</dd>
+        <dd>
+          {format(new Date((scrapedAt ?? 0) * 1000), 'yyyy/MM/dd HH:mm:ss')}
+        </dd>
       </dd>
     </Link>
   )
