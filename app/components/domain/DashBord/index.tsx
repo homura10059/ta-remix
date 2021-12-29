@@ -1,11 +1,11 @@
 import cx from 'classnames'
-import format from 'date-fns/format'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'remix'
 
 import { Item } from '../../../domain/models'
 import { getAllItemsBy } from '../../../domain/service/items'
 import { supabase } from '../../../libs/auth'
+import { getJstString } from '../../../libs/dates'
 
 type Props = {
   items: Item[]
@@ -16,9 +16,7 @@ const DashBordItem: React.VFC<Item> = ({ title, scrapedAt, id }) => {
     <Link to={`/items/${id}`}>
       <dd>
         <dt>{title}</dt>
-        <dd>
-          {format(new Date((scrapedAt ?? 0) * 1000), 'yyyy/MM/dd HH:mm:ss')}
-        </dd>
+        <dd>{scrapedAt ? getJstString(scrapedAt) : '----'}</dd>
       </dd>
     </Link>
   )
