@@ -8,5 +8,5 @@ export const meta: MetaFunction = () => {
 }
 
 export default function Index() {
-  return <main>index</main>
+  return <div>index</div>
 }

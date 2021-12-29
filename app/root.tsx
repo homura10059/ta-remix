@@ -13,7 +13,6 @@ import {
 import styles from '~/styles/generated.css'
 
 import Header from './components/domain/Header'
-import { supabase } from './libs/auth'
 
 // https://remix.run/api/app#links
 export const links: LinksFunction = () => {
@@ -117,7 +116,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <Header />
-      <main>{children}</main>
+      <main className={'p-4'}>{children}</main>
       <footer>
         <p>Footer</p>
       </footer>

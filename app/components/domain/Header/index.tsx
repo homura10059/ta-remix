@@ -21,7 +21,8 @@ export const Header: React.VFC = () => {
         'justify-between',
         'content-center',
         'bg-primary-light',
-        'p-1'
+        'p-1',
+        'sticky top-0' // ヘッダを固定
       )}
     >
       <Link to={'/'}>

@@ -23,14 +23,13 @@ const DashBordItem: React.VFC<Item> = ({ title, scrapedAt, id }) => {
 
 export const DashBord: React.VFC<Props> = ({ items }) => {
   return (
-    <main
+    <div
       className={cx([
         'grid',
         'grid-cols-1',
         'md:grid-cols-2',
         'gap-2',
-        'auto-cols-auto',
-        'p-4'
+        'auto-cols-auto'
       ])}
     >
       {items.map(item => (
@@ -38,7 +37,7 @@ export const DashBord: React.VFC<Props> = ({ items }) => {
           <DashBordItem {...item} />
         </div>
       ))}
-    </main>
+    </div>
   )
 }
 
