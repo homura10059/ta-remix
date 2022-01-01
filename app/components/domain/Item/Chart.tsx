@@ -68,3 +68,5 @@ export const Chart: React.VFC<Props> = ({ timeline }) => {
     </ResponsiveContainer>
   )
 }
+
+export default Chart

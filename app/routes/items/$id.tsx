@@ -1,22 +1,14 @@
 import { format } from 'date-fns'
-import {
-  Area,
-  Brush,
-  CartesianGrid,
-  ComposedChart,
-  Legend,
-  Line,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis
-} from 'recharts'
+import React, { Suspense } from 'react'
 import type { LoaderFunction, MetaFunction } from 'remix'
 import { useLoaderData } from 'remix'
 
-import { Chart } from '../../components/domain/Item/Chart'
 import { ItemDetail } from '../../domain/models'
 import { getItemDetail } from '../../domain/service/itemHistories'
+
+const ChartComponent = React.lazy(
+  () => import('../../components/domain/Item/Chart')
+)
 
 type Props = {
   item: ItemDetail | null
@@ -52,7 +44,9 @@ export default function Items() {
           )}
         </li>
       </ul>
-      <Chart timeline={timeline} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ChartComponent timeline={timeline} />
+      </Suspense>
     </>
   )
 }
