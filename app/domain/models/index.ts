@@ -21,6 +21,8 @@ export type User = {
   }[]
 }
 
+export type ItemHistory = definitions['itemHistories']
+
 export type ItemDetail = definitions['items'] & {
-  itemHistories: definitions['itemHistories'][]
+  itemHistories: ItemHistory[]
 }
