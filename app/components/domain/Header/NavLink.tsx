@@ -12,6 +12,9 @@ export const NavList = () => {
           <NavLink to="dashbord" className={activeStyle}>
             DashBord
           </NavLink>
+          <NavLink to="wishlists" className={activeStyle}>
+            WishLists
+          </NavLink>
         </li>
       </ul>
     </nav>
