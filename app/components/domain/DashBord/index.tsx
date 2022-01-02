@@ -1,46 +1,9 @@
-import cx from 'classnames'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'remix'
 
 import { Item } from '../../../domain/models'
 import { getAllItemsBy } from '../../../domain/service/items'
 import { supabase } from '../../../libs/auth'
-import { getJstString } from '../../../libs/dates'
-
-type Props = {
-  items: Item[]
-}
-
-const DashBordItem: React.VFC<Item> = ({ title, scrapedAt, id }) => {
-  return (
-    <Link to={`/items/${id}`}>
-      <dd>
-        <dt>{title}</dt>
-        <dd>{scrapedAt ? getJstString(scrapedAt) : '----'}</dd>
-      </dd>
-    </Link>
-  )
-}
-
-export const DashBord: React.VFC<Props> = ({ items }) => {
-  return (
-    <div
-      className={cx([
-        'grid',
-        'grid-cols-1',
-        'md:grid-cols-2',
-        'gap-2',
-        'auto-cols-auto'
-      ])}
-    >
-      {items.map(item => (
-        <div className={cx(['block', 'border-2', 'border-black'])}>
-          <DashBordItem {...item} />
-        </div>
-      ))}
-    </div>
-  )
-}
+import { List } from '../Item/List'
 
 const Connect: React.VFC = () => {
   const [items, setItems] = useState<Item[] | null>(null)
@@ -51,7 +14,7 @@ const Connect: React.VFC = () => {
     })
   }, [])
 
-  return items && <DashBord items={items} />
+  return items && <List items={items} />
 }
 
 export default Connect
