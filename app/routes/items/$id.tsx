@@ -3,6 +3,7 @@ import React, { Suspense } from 'react'
 import type { LoaderFunction, MetaFunction } from 'remix'
 import { useLoaderData } from 'remix'
 
+import { ClientOnly } from '../../components/headless/ClientOnly'
 import { ItemDetail } from '../../domain/models'
 import { getItemDetail } from '../../domain/service/itemHistories'
 
@@ -44,9 +45,11 @@ export default function Items() {
           )}
         </li>
       </ul>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ChartComponent timeline={timeline} />
-      </Suspense>
+      <ClientOnly>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ChartComponent timeline={timeline} />
+        </Suspense>
+      </ClientOnly>
     </>
   )
 }
