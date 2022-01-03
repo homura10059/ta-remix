@@ -20,6 +20,7 @@ export const Header: React.VFC = () => {
         'flex',
         'justify-between',
         'content-center',
+        'items-center',
         'bg-primary-light',
         'p-1',
         'sticky top-0' // ヘッダを固定
